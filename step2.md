@@ -17,7 +17,7 @@ Export environment variables to start using Kubernetes.
 export KUBECONFIG=/Users/svennam/.bluemix/plugins/container-service/clusters/fossasia-kube03/kube-config-sjc04-fossasia-kube03.yml
 ```
 
-**Copy/paste the output from** _**your terminal.**_ **Save this output in a notepad/note for future reference. When opening a new terminal, you will have to set this env var again.** If you're comfortable with it, you can also edit your `.bashrc` or similar file to include this env var every time you open a new terminal.
+**Copy/paste the output from** _**your terminal.**_ **Save this output in a notepad/note for future reference. When opening a new terminal, you will have to set this env var again.** If you're feeling savvy with your environment, you can also edit your `.bashrc` or similar file to include this env var every time you open a new terminal.
 
 Once your client is configured, you are ready to deploy your first application, `guestbook`.
 
@@ -25,11 +25,10 @@ Once your client is configured, you are ready to deploy your first application, 
 
 Now, you will deploy an application called `guestbook` that has already been built and uploaded to DockerHub under the name `svennam92/guestbook:v1`.
 
-1. Start by running `guestbook`:
+1. Start by creating a deployment of `guestbook`:  
+   `$ kubectl create deployment guestbook --image=svennam92/guestbook:v1`
 
-   `$ kubectl run guestbook --image=svennam92/guestbook:v1`
-
-   This action will take a bit of time. To check the status of the running application, you can use `$ kubectl get pods --watch`. \(`Ctrl+C` to exit the watch process\)
+   This action will take a bit of time. To check the status of the pods being spun up, you can use `$ kubectl get pods --watch`. \(`Ctrl+C` to exit the watch process\)
 
    You should see output similar to the following:
 
@@ -74,7 +73,7 @@ Now, you will deploy an application called `guestbook` that has already been bui
    kube-hou02-pa1e3ee39f549640aebea69a444f51fe55-w1   173.193.99.136   10.76.194.30   free           normal   Ready    hou02   1.5.6_1500*
    ```
 
-   We can see that our `<public-IP>` is `173.193.99.136`.
+   We can see that our `<public-IP>` is `173.193.99.136`. If you have multiple workers, choose any of them.
 
 5. Now that you have both the address and the port, you can now access the application in the web browser at `<public-IP>:<nodeport>`. In the example case this is `173.193.99.136:31208`.
 

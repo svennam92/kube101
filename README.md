@@ -29,7 +29,7 @@ Navigate to the [Dashboard](https://cloud.ibm.com/login). It will ask you to log
 
 ###  Step 4: Get a Kubernetes Cluster
 
-For this lab, we've created a set of clusters for you to use. These are fully-powered "paid" clusters - much more powerful than "Free" clusters. Navigate to the [Grant Clusters Page](https://fossasia-kube.mybluemix.net/) to obtain one.
+For this lab, we've created a set of clusters for you to use. These are fully-powered "paid" clusters - much more powerful than the free-to-try "Lite" clusters. Navigate to the [Grant Clusters Page](https://fossasia-kube.mybluemix.net/) to obtain one.
 
 ![](.gitbook/assets/screen-shot-2019-03-14-at-12.29.01-pm.png)
 

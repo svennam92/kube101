@@ -6,9 +6,16 @@ Deploy an application to a managed Kubernetes cluster.
 
 As a pre-req, you should have obtained a cluster. This is a managed Kubernetes cluster hosted on an IBM organization, with access granted to your personal IBM Cloud account. Let's enable `kubectl`, the primary method of working with _any_ Kubernetes cluster, to communicate with this cluster.
 
-Recall the name of the cluster you obtained in the [prereq steps](./#step-4-get-a-kubernetes-cluster). Run   
-`# Replace XX with your cluster number!`  
-`$ ibmcloud ks cluster-config fossasia-kubeXX`, and set the `KUBECONFIG` env var. You'll see output like this:
+Recall the name of the cluster you obtained in the [prereq steps](./#step-4-get-a-kubernetes-cluster). You can run `ibmcloud ks clusters` if you need to find it again.   
+  
+Run the following:
+
+```text
+# Replace XX with your cluster number!
+$ ibmcloud ks cluster-config fossasia-kubeXX
+```
+
+Set the `KUBECONFIG` env var. You'll see output like this:
 
 ```text
 The configuration for fossasia-kube03 was downloaded successfully.

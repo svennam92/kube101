@@ -5,14 +5,14 @@ Before you begin the workshop, you need to install the required CLIs to create a
 This lab includes the information for installing the following CLIs and plug-ins:
 
 * IBM Cloud CLI \(`ibmcloud`\)
-* IBM Cloud Container \(`ibmcloud ks`\)
+* IBM Cloud Kubernetes Service Plugin \(`ibmcloud ks`\)
 * Kubernetes CLI \(`kubectl`\)
 
 If you already have the CLIs and plug-ins, you can skip this step and proceed to the next one.
 
 ## Install the IBM Cloud command-line interface
 
-1. As a prerequisite for the IBM Cloud Container Service plug-in, install the [IBM Cloud command-line interface](https://cloud.ibm.com/docs/cli?topic=cloud-cli-install-ibmcloud-cli#install-ibmcloud-cli). Once installed, you can access IBM Cloud from your command-line with the prefix `ibmcloud`.
+1. As a prerequisite for the IBM Cloud Kubernetes Service plug-in, install the [IBM Cloud command-line interface](https://cloud.ibm.com/docs/cli?topic=cloud-cli-install-ibmcloud-cli#install-ibmcloud-cli). Once installed, you can access IBM Cloud from your command-line with the prefix `ibmcloud`.
 2. Log in to the IBM Cloud CLI: `ibmcloud login -a api.ng.bluemix.net`.
 3. Enter your IBM Cloud credentials when prompted.
 4. When asked which account to use, target the `IBM` account:
@@ -35,7 +35,7 @@ Enter a number> 2
 
 2. To verify that the plug-in is installed properly, run the following command: `ibmcloud plugin list`
 
-   The IBM Cloud Kubernetes Service plug-in is displayed in the results as `container-service`.
+   The IBM Cloud Kubernetes Service plug-in is displayed in the results as `container-service/kubernetes-service`.
 
 3. Set the proper region: `ibmcloud ks region-set us-south`
 

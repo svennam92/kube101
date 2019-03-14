@@ -15,11 +15,13 @@ If you already have the CLIs and plug-ins, you can skip this step and proceed to
 1. As a prerequisite for the IBM Cloud Container Service plug-in, install the [IBM Cloud command-line interface](https://cloud.ibm.com/docs/cli?topic=cloud-cli-install-ibmcloud-cli#install-ibmcloud-cli). Once installed, you can access IBM Cloud from your command-line with the prefix `ibmcloud`.
 2. Log in to the IBM Cloud CLI: `ibmcloud login -a api.ng.bluemix.net`.
 3. Enter your IBM Cloud credentials when prompted.
-4. When asked which account to use, target the `IBM` account:  
-   `1. Sai Vennam's Account (d815248d6bd0cc354df42d43db45ce09)`
+4. When asked which account to use, target the `IBM` account:
 
-   `2. IBM (e2b54d0c3bbe4180b1ee63a0e2a7aba4) <-> 1840867  
-   Enter a number> 2`
+```text
+1. Sai Vennam's Account (d815248d6bd0cc354df42d43db45ce09)
+2. IBM (e2b54d0c3bbe4180b1ee63a0e2a7aba4) <-> 1840867
+Enter a number> 2
+```
 
 ## Install the IBM Cloud Kubernetes Service plug-in
 

@@ -2,7 +2,7 @@
 
 In this step, you'll learn how to update the number of instances a pod has and how to safely roll out an update of your application on Kubernetes.
 
-To proceed, you need a running deployment of the `guestbook` application that you created in the [previous step](lab1.md).
+To proceed, you need a running deployment of the `guestbook` application that you created in the [previous step](step2.md).
 
 ## 1. Scale apps with replicas
 

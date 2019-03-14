@@ -2,7 +2,7 @@
 
 ## Install \`knctl\` CLI
 
-Download the appropriate binary from the [releases section](https://github.com/cppforlife/knctl/releases) of the `knctl` project \(and optionally add it to your PATH\), similar to the steps you followed earlier in [Step 1](lab0.md).
+Download the appropriate binary from the [releases section](https://github.com/cppforlife/knctl/releases) of the `knctl` project \(and optionally add it to your PATH\), similar to the steps you followed earlier in [Step 1](step1.md).
 
 ![](.gitbook/assets/screen-shot-2019-03-14-at-2.02.09-pm.png)
 

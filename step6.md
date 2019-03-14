@@ -42,20 +42,20 @@ Next, we'll need to tell Kubernetes to route every request coming in with the ho
 {% code-tabs %}
 {% code-tabs-item title="ingress.yaml" %}
 ```yaml
- apiVersion: extensions/v1beta1
- kind: Ingress
- metadata:
-     name: iks-knative-ingress
-     namespace: istio-system
- spec:
-     rules:
-         - host: guestbook.default.<ingress_subdomain>
-             http:
-                 paths:
-                     - path: /
-                         backend:
-                             serviceName: istio-ingressgateway
-                             servicePort: 80
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: iks-knative-ingress
+  namespace: istio-system
+spec:
+  rules:
+  - host: guestbook.default.<ingress_subdomain>
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: istio-ingressgateway
+          servicePort: 80
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}

@@ -2,7 +2,7 @@
 
 Deploy an application to a managed Kubernetes cluster.
 
-## 1. Enable kubectl to work with your cluster
+## Enable kubectl to work with your cluster
 
 As a pre-req, you should have obtained a cluster. This is a managed Kubernetes cluster hosted on an IBM organization, with access granted to your personal IBM Cloud account. Let's enable `kubectl`, the primary method of working with _any_ Kubernetes cluster, to communicate with this cluster.
 
@@ -21,7 +21,7 @@ export KUBECONFIG=/Users/svennam/.bluemix/plugins/container-service/clusters/fos
 
 Once your client is configured, you are ready to deploy your first application, `guestbook`.
 
-## **2**. Deploy your application
+## Deploy your application
 
 Now, you will deploy an application called `guestbook` that has already been built and uploaded to DockerHub under the name `svennam92/guestbook:v1`.
 

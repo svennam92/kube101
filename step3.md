@@ -4,7 +4,7 @@ In this step, you'll learn how to update the number of instances a pod has and h
 
 To proceed, you need a running deployment of the `guestbook` application that you created in the [previous step](step2.md).
 
-## 1. Scale apps with replicas
+## Scale apps with replicas
 
 A _replica_ is a copy of a pod that contains a running service. By having multiple replicas of a pod, you can ensure your deployment has the available resources to handle increasing load on your application.
 
@@ -54,7 +54,7 @@ A _replica_ is a copy of a pod that contains a running service. By having multip
    guestbook-562211614-zsp0j   1/1       Running   0          2m
    ```
 
-### Load Balancers in Kubernetes
+#### Load Balancers in Kubernetes
 
 Traditionally, when scaling out applications you would need to setup a Load Balancer to route requests to one of the many instances. With Kubernetes, load balancers are built in! You can continue to use the IP and Port you used in the last step to access the application - the requests will get forwarded to one of the Pods automatically. Sweet, right?
 
@@ -64,7 +64,7 @@ Traditionally, when scaling out applications you would need to setup a Load Bala
 
 ![HA with more clusters and regions](.gitbook/assets/cluster_ha_roadmap.png)
 
-## 2. Update and roll back apps
+## Update and roll back apps
 
 Kubernetes allows you to do rolling upgrade of your application to a new container image. This allows you to easily update the running image and also allows you to easily undo a rollout if a problem is discovered during or after deployment.
 

@@ -16,7 +16,7 @@ Succeeded
 
 ## Enable Knative \(and Istio\)
 
-To enable Knative, let's use the [IBM Cloud Dashboard](https://cloud.ibm.com/). Next, make sure you have the right account chosen. In the top right of the webpage, open the drop-down and choose the IBM account.
+To enable Knative, let's use the [IBM Cloud Dashboard](https://cloud.ibm.com/). Make sure you have the right account chosen. In the top right of the webpage, open the drop-down and choose the IBM account.
 
 ![](.gitbook/assets/screen-shot-2019-03-14-at-1.40.35-pm.png)
 

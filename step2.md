@@ -10,13 +10,14 @@ Recall the name of the cluster you obtained in the [prereq steps](./#step-4-get-
 `# Replace XX with your cluster number!`  
 `$ ibmcloud ks cluster-config fossasia-kubeXX`, and set the `KUBECONFIG` env var. You'll see output like this:
 
-`The configuration for fossasia-kube03 was downloaded successfully.  
-Export environment variables to start using Kubernetes.`  
-**`export KUBECONFIG=/Users/svennam/.bluemix/plugins/container-service/clusters/fossasia-kube03/kube-config-sjc04-fossasia-kube03.yml`**
+```text
+The configuration for fossasia-kube03 was downloaded successfully.
+Export environment variables to start using Kubernetes.
 
-{% hint style="warning" %}
+export KUBECONFIG=/Users/svennam/.bluemix/plugins/container-service/clusters/fossasia-kube03/kube-config-sjc04-fossasia-kube03.yml
+```
+
 **Copy/paste the output from** _**your terminal.**_ **Save this output in a notepad/note for future reference. When opening a new terminal, you will have to set this env var again.** If you're comfortable with it, you can also edit your `.bashrc` or similar file to include this env var every time you open a new terminal.
-{% endhint %}
 
 Once your client is configured, you are ready to deploy your first application, `guestbook`.
 

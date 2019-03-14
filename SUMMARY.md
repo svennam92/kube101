@@ -8,4 +8,5 @@
 * [Step 5: Deploy with Knative](step5.md)
 * [Step 6: Setup Ingress for a Clean URL](step6.md)
 * [Step 7: Traffic Management with Knative](step-7-traffic-management-with-knative.md)
+* [What's next?](whats-next.md)
 

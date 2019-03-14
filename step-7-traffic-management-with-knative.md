@@ -20,7 +20,7 @@ Access your application again \(something like `http://guestbook.default.fossasi
 You've now made two deployments, one for v1 and the other for v2. Knative takes snapshots of every deployment you make - you can check them out by running `knctl revision list`:
 
 ```text
-knctl revision list
+$ knctl revision list
 Revisions
 
 Service    Name             Tags      Annotations  Conditions  Age  Traffic  
@@ -40,5 +40,11 @@ knctl rollout --route guestbook -p guestbook:latest=50% -p guestbook:previous=50
 
 ### Traffic: Managed!
 
-That's it! Your traffic is now being equally routed between the two versions. In an ideal deployment, you'd have a much lower percent routing to the newer version. You'd gradually increase that until you've verified that your users are having a positive experience with the new version. Knative makes it really easy to manage routes, traffic and revisions -- all the tools that make operations engineers' lives easier.
+That's it! Your traffic is now being equally routed between the two versions. You can test this by running the following script \(but for your Ingress Subdomain\):
+
+```text
+while sleep 0.5; do curl -s http://guestbook.default.fossasia-kube1.sjc04.containers.appdomain.cloud/ | grep title ; done
+```
+
+In a real-world deployment, you'd have a much lower percent routing to the newer version. You'd gradually increase that until you've verified that your users are having a positive experience with the new version. Knative makes it really easy to manage routes, traffic and revisions -- all the tools that make operations engineers' lives easier.
 

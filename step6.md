@@ -74,7 +74,7 @@ Paste that into your browser, and access your Guestbook application!
 
 ### But wait, isn't Knative "serverless"?
 
-If your applications don't receive any load, they'll scale down automatically! Prove it by running `kubectl get pods --watch`.
+If your application doesn't receive any requests or load, they'll scale down automatically! Prove it by running `kubectl get pods --watch`and waiting:
 
 ```text
 $ kubectl get pods --watch
@@ -86,18 +86,6 @@ guestbook-00001-deployment-845555976-q999f   1/2   Terminating   0     119s
 ```
 
 This demonstrates the `scale-to-zero` aspect of serverless workloads. When no one is utilizing the app, it scales down so that the compute resource is freed up.
-
-## What's next?
-
-Check out more samples and patterns like this on [IBM Developer](https://developer.ibm.com/components/kubernetes/)
-
-Explore your [IBM Cloud Dashboard](https://cloud.ibm.com)
-
-Learn more about Kubernetes and Knative:
-
-{% embed url="https://www.youtube.com/watch?v=aSrqRSk43lY" %}
-
-{% embed url="https://www.youtube.com/watch?v=69OfdJ5BIzs" %}
 
 
 

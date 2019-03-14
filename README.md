@@ -1,15 +1,41 @@
 ---
 description: >-
   Thanks for joining us for this lab! While you wait, get started by creating an
-  IBM Cloud Account, obtaining a cluster, and learning a little more about
-  Kubernetes.
+  IBM Cloud Account, obtaining a Kubernetes cluster, and learning a little more
+  about Kubernetes.
 ---
 
 # FOSSASIA: Kubernetes and Knative Lab
 
-## Create an IBM Cloud Account
+### Step 1: Register for IBM Cloud
 
+TODO VCPI: Go to [https://cloud.ibm.com/](https://ibm.biz/codethink_gov) to start the registration.
 
+![](.gitbook/assets/screen-shot-2019-03-14-at-12.24.54-pm.png)
+
+Fill out all the require information and the CAPTCHA and submit. You should get a confirmation page.
+
+###  Step 2: Confirm Email
+
+Check your email and confirm your account. This will take you to an IBM coders site. You can ignore this.
+
+###  Step 3: IBM Cloud Console
+
+Navigate to the [Dashboard](https://cloud.ibm.com/login). It will ask you to login:
+
+![](.gitbook/assets/screen-shot-2019-03-14-at-12.26.21-pm.png)
+
+**NOTE**: Your _IBMid_ is your email address
+
+###  Step 4: Get a Kubernetes Cluster
+
+For this lab, we've created a set of clusters for you to use. These are fully-powered "paid" clusters - much more powerful than "Free" clusters. Navigate to the [Grant Clusters Page](https://fossasia-kube.mybluemix.net/) to obtain one.
+
+![](.gitbook/assets/screen-shot-2019-03-14-at-12.29.01-pm.png)
+
+Enter the Lab Key `fossasia-kube-2019`as well as the email address associated with the IBM Cloud account you just created. Use the Dallas region only. After you hit submit, you will be given a cluster for the duration of the workshop.
+
+Now, learn a little bit about Kubernetes to get a better understanding before starting the lab! Feel free to read as much or as little of the material on this page before proceeding to [Step 1](lab0.md).
 
 ![](https://kubernetes.io/images/favicon.png)
 
@@ -20,20 +46,6 @@ Hey, are you looking for a containers 101 course? Check out our [Docker Essentia
 Containers allow you to run securely isolated applications with quotas on system resources. Containers started out as an individual feature delivered with the linux kernel. Docker launched with making containers easy to use and developers quickly latched onto that idea. Containers have also sparked an interest in microservice architecture, a design pattern for developing applications in which complex applications are down into smaller, composable pieces which work together.
 
 Watch this [video](https://www.youtube.com/watch?v=wlBhtc31I8c) to learn about production uses of containers.
-
-## Objectives
-
-This lab is an introduction to using Docker containers on Kubernetes in the IBM Cloud Container Service. By the end of the course, you'll achieve these objectives:
-
-* Understand core concepts of Kubernetes
-* Build a Docker image and deploy an application on Kubernetes in the IBM Cloud Container Service 
-* Control application deployments, while minimizing your time with infrastructure management
-* Add AI services to extend your app 
-* Secure and monitor your cluster and app
-
-## Prerequisites
-
-* An [IBM Cloud account](https://console.bluemix.net/registration/)
 
 ## Virtual machines
 
@@ -61,15 +73,6 @@ Traditional applications are run on native hardware. A single application does n
 ![Containers versus VMs](.gitbook/assets/vmvscontainer.png)
 
 Containers allow you to share the host OS. This reduces duplication while still providing the isolation. Containers also allow you to drop unneeded files such as system libraries and binaries to save space and reduce your attack surface. If SSHD or LIBC are not installed, they cannot be exploited.
-
-## Get set up
-
-Before we dive into Kubernetes, you need to provision a cluster for your containerized app. Then you won't have to wait for it to be ready for the subsequent labs.
-
-1. You must install the CLIs per [https://console.ng.bluemix.net/docs/containers/cs\_cli\_install.html](https://console.ng.bluemix.net/docs/containers/cs_cli_install.html). If you do not yet have these CLIs and the Kubernetes CLI, do [lab 0](lab0.md) before starting the course.
-2. If you haven't already, provision a cluster. This can take a few minutes, so let it start first: `ibmcloud cs cluster-create --name <name-of-cluster>`
-3. After creation, before using the cluster, make sure it has completed provisioning and is ready for use. Run `ibmcloud cs clusters` and make sure that your cluster is in state "deployed".  
-4. Then use `ibmcloud cs workers <name-of-cluster>` and make sure that all worker nodes are in state "normal" with Status "Ready".
 
 ## Kubernetes and containers: an overview
 
@@ -168,23 +171,5 @@ IBM Cloud provides the capability to run applications in containers on Kubernete
 * Cloud services including cognitive capabilities from Watson
 * Capability to manage dedicated cluster resources for both stateless applications and stateful workloads
 
-## Lab overview
 
-[Lab 0](lab0.md) \(Optional\): Provides a walkthrough for installing IBM Cloud command-line tools and the Kubernetes CLI. You can skip this lab if you have the IBM Cloud CLI, the container-service plugin, the containers-registry plugin, and the kubectl CLI already installed on your machine.
-
-[Lab 1](lab1.md): This lab walks through creating and deploying a simple "guestbook" app written in Go as a net/http Server and accessing it.
-
-[Lab 2](lab2.md): Builds on lab 1 to expand to a more resilient setup which can survive having containers fail and recover. Lab 2 will also walk through basic services you need to get started with Kubernetes and the IBM Cloud Container Service
-
-[Lab 3](workshop/lab3.md): Builds on lab 2 by increasing the capabilities of the deployed Guestbook application. This lab covers basic distributed application design and how kubernetes helps you use standard design practices.
-
-[Lab 4](workshop/lab4.md): How to enable your application so Kubernetes can automatically monitor and recover your applications with no user intervention.
-
-[Lab D](workshop/labd.md): Debugging tips and tricks to help you along your Kubernetes journey. This lab is useful reference that does not follow in a specific sequence of the other labs.[![Build Status](https://travis-ci.org/IBM/kube101.svg?branch=master)](https://travis-ci.org/IBM/kube101)
-
-This repository contains introductory material for Kubernetes.
-
-There is a presenter-run [meetup](https://github.com/svennam92/kube101/tree/d87628eae629edf45250e56e7792d692e4d83638/presentation/meetup.pptx), including [automated scripts](presentation/scripts.md) for running a demonstration of Kubernetes as provided by IBM Cloud Kubernetes Service. This should take from 45 minutes to an hour and a half based on the style of the presenter as well as audience participation.
-
-There is a self-guided or host-guided [workshop](workshop/), with detailed explanations about the principles of operating an application in a Kubernetes environment. Including some time for setup, this should take between 2-4 hours.
 

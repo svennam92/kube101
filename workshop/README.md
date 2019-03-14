@@ -57,7 +57,7 @@ Containers allow you to share the host OS. This reduces duplication while still 
 
 Before we dive into Kubernetes, you need to provision a cluster for your containerized app. Then you won't have to wait for it to be ready for the subsequent labs.
 
-1. You must install the CLIs per [https://console.ng.bluemix.net/docs/containers/cs\_cli\_install.html](https://console.ng.bluemix.net/docs/containers/cs_cli_install.html). If you do not yet have these CLIs and the Kubernetes CLI, do [lab 0](lab0.md) before starting the course.
+1. You must install the CLIs per [https://console.ng.bluemix.net/docs/containers/cs\_cli\_install.html](https://console.ng.bluemix.net/docs/containers/cs_cli_install.html). If you do not yet have these CLIs and the Kubernetes CLI, do [lab 0](../lab0.md) before starting the course.
 2. If you haven't already, provision a cluster. This can take a few minutes, so let it start first: `ibmcloud cs cluster-create --name <name-of-cluster>`
 3. After creation, before using the cluster, make sure it has completed provisioning and is ready for use. Run `ibmcloud cs clusters` and make sure that your cluster is in state "deployed".  
 4. Then use `ibmcloud cs workers <name-of-cluster>` and make sure that all worker nodes are in state "normal" with Status "Ready".
@@ -161,11 +161,11 @@ IBM Cloud provides the capability to run applications in containers on Kubernete
 
 ## Lab overview
 
-[Lab 0](lab0.md) \(Optional\): Provides a walkthrough for installing IBM Cloud command-line tools and the Kubernetes CLI. You can skip this lab if you have the IBM Cloud CLI, the container-service plugin, the containers-registry plugin, and the kubectl CLI already installed on your machine.
+[Lab 0](../lab0.md) \(Optional\): Provides a walkthrough for installing IBM Cloud command-line tools and the Kubernetes CLI. You can skip this lab if you have the IBM Cloud CLI, the container-service plugin, the containers-registry plugin, and the kubectl CLI already installed on your machine.
 
-[Lab 1](lab1/): This lab walks through creating and deploying a simple "guestbook" app written in Go as a net/http Server and accessing it.
+[Lab 1](../lab1.md): This lab walks through creating and deploying a simple "guestbook" app written in Go as a net/http Server and accessing it.
 
-[Lab 2](lab2.md): Builds on lab 1 to expand to a more resilient setup which can survive having containers fail and recover. Lab 2 will also walk through basic services you need to get started with Kubernetes and the IBM Cloud Container Service
+[Lab 2](../lab2.md): Builds on lab 1 to expand to a more resilient setup which can survive having containers fail and recover. Lab 2 will also walk through basic services you need to get started with Kubernetes and the IBM Cloud Container Service
 
 [Lab 3](lab3.md): Builds on lab 2 by increasing the capabilities of the deployed Guestbook application. This lab covers basic distributed application design and how kubernetes helps you use standard design practices.
 

@@ -1,14 +1,8 @@
-# README
+# Step 3: Scale and Update Deployments
 
-## Lab 2: Scale and Update Deployments
+In this step, you'll learn how to update the number of instances a pod has and how to safely roll out an update of your application on Kubernetes.
 
-In this lab, you'll learn how to update the number of instances a deployment has and how to safely roll out an update of your application on Kubernetes.
-
-For this lab, you need a running deployment of the `guestbook` application from the previous lab. If you deleted it, recreate it using:
-
-```text
-$ kubectl run guestbook --image=ibmcom/guestbook:v1
-```
+To proceed, you need a running deployment of the `guestbook` application that you created in the [previous step](lab1.md).
 
 ## 1. Scale apps with replicas
 
@@ -60,9 +54,13 @@ A _replica_ is a copy of a pod that contains a running service. By having multip
    guestbook-562211614-zsp0j   1/1       Running   0          2m
    ```
 
-**Tip:** Another way to improve availability is to [add clusters and regions](https://console.bluemix.net/docs/containers/cs_planning.html#cs_planning_cluster_config) to your deployment, as shown in the following diagram:
+### **Why is this cool?**
 
-![HA with more clusters and regions](../.gitbook/assets/cluster_ha_roadmap.png)
+When traditionally scaling out applications like this, you'd be required to setup a Load Balancer to route requests to one of the instances. With Kubernetes, load balancers are built in! You can continue to use the IP and Port you used in the last step to access the application - the requests will get forwarded to one of the Pods automatically. Sweet, right?
+
+**Pro Tip:** Another way to improve availability is to [add clusters and regions](https://console.bluemix.net/docs/containers/cs_planning.html#cs_planning_cluster_config) to your deployment, as shown in the following diagram:
+
+![HA with more clusters and regions](.gitbook/assets/cluster_ha_roadmap.png)
 
 ## 2. Update and roll back apps
 
@@ -70,15 +68,10 @@ Kubernetes allows you to do rolling upgrade of your application to a new contain
 
 In the previous lab, we used an image with a `v1` tag. For our upgrade we'll use the image with the `v2` tag.
 
-To update and roll back: 1. Using `kubectl`, you can now update your deployment to use the `v2` image. `kubectl` allows you to change details about existing resources with the `set` subcommand. We can use it to change the image being used.
+Using `kubectl`, you can update your deployment to use the `v2` image. `kubectl` allows you to change details about existing resources with the `set` subcommand. We can use it to change the image being used.
 
-```text
-```$ kubectl set image deployment/guestbook guestbook=ibmcom/guestbook:v2```
-```
-
-Note that a pod could have multiple containers, each with its own name. Each image can be changed individually or all at once by referring to the name. In the case of our `guestbook` Deployment, the container name is also `guestbook`. Multiple containers can be updated at the same time. \([More information](https://kubernetes.io/docs/user-guide/kubectl/kubectl_set_image/).\)
-
-1. Run `kubectl rollout status deployment/guestbook` to check the status of the rollout. The rollout might occur so quickly that the following messages might _not_ display:
+1. Run the following command to change the container image reference on the existing guestbook deployment. `$ kubectl set image deployment/guestbook guestbook=ibmcom/guestbook:v2`  Note that a pod could have multiple containers, each with its own name. Each image can be changed individually or all at once by referring to the name. In the case of our `guestbook` Deployment, the container name is also `guestbook`. Multiple containers can be updated at the same time. \([More information](https://kubernetes.io/docs/user-guide/kubectl/kubectl_set_image/).\)
+2. Run `kubectl rollout status deployment/guestbook` to check the status of the rollout. The rollout might occur so quickly that the following messages might _not_ display:
 
    ```text
    $ kubectl rollout status deployment/guestbook
@@ -117,15 +110,15 @@ Note that a pod could have multiple containers, each with its own name. Each ima
    deployment "guestbook" successfully rolled out
    ```
 
-2. Test the application as before, by accessing `<public-IP>:<nodeport>` in the browser to confirm your new code is active.
+3. Test the application as before, by accessing `<public-IP>:<nodeport>` in the browser to confirm your new code is active.
 
    Remember, to get the "nodeport" and "public-ip" use:
 
    `$ kubectl describe service guestbook` and `$ ibmcloud cs workers <name-of-cluster>`
 
-   To verify that you're running "v2" of guestbook, look at the title of the page, it should now be `Guestbook - v2`
+   To verify that you're running "v2" of guestbook, look at the title of the page, it should now be `Guestbook - V2`. You may have to do a cache-less reload, with `Ctrl+F5` or `Cmd+Shift+R`
 
-3. If you want to undo your latest rollout, use:
+4. If you want to undo your latest rollout, use:
 
    ```text
    $ kubectl rollout undo deployment guestbook
@@ -134,7 +127,7 @@ Note that a pod could have multiple containers, each with its own name. Each ima
 
    You can then use `kubectl rollout status deployment/guestbook` to see the status.
 
-4. When doing a rollout, you see references to _old_ replicas and _new_ replicas. The _old_ replicas are the original 10 pods deployed when we scaled the application. The _new_ replicas come from the newly created pods with the different image. All of these pods are owned by the Deployment. The deployment manages these two sets of pods with a resource called a ReplicaSet. We can see the guestbook ReplicaSets with:
+5. When doing a rollout, you see references to _old_ replicas and _new_ replicas. The _old_ replicas are the original 10 pods deployed when we scaled the application. The _new_ replicas come from the newly created pods with the different image. All of these pods are owned by the Deployment. The deployment manages these two sets of pods with a resource called a ReplicaSet. We can see the guestbook ReplicaSets with:
 
    ```text
    $ kubectl get replicasets -l run=guestbook
@@ -145,9 +138,8 @@ Note that a pod could have multiple containers, each with its own name. Each ima
 
 Before we continue, let's delete the application so we can learn about a different way to achieve the same results:
 
-To remove the deployment, use `kubectl delete deployment guestbook`.
-
+To remove the deployment, use `kubectl delete deployment guestbook`.  
 To remove the service, use `kubectl delete service guestbook`.
 
-Congratulations! You deployed the second version of the app. Lab 2 is now complete.
+Congratulations! You've demonstrated how to scale and rollout deployments. You should have a firm understanding of a standard DevOps flow with Kubernetes. Next, we'll use Knative to show how it makes everything we've done so far even simpler.
 

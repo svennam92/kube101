@@ -9,7 +9,7 @@ This should look familiar. We're doing the same deploy but with `guestbook:v2`. 
 ```text
 knctl deploy \
       --service guestbook \
-      --image svennam92/guestbook:v2
+      --image svennam92/guestbook:v2 \
       --managed-route=false
 ```
 

@@ -132,7 +132,7 @@ Using `kubectl`, you can update your deployment to use the `v2` image. `kubectl`
 5. When doing a rollout, you see references to _old_ replicas and _new_ replicas. The _old_ replicas are the original 10 pods deployed when we scaled the application. The _new_ replicas come from the newly created pods with the different image. All of these pods are owned by the Deployment. The deployment manages these two sets of pods with a resource called a ReplicaSet. We can see the guestbook ReplicaSets with:
 
    ```text
-   $ kubectl get replicasets -l run=guestbook
+   $ kubectl get replicasets -l app=guestbook
    NAME                   DESIRED   CURRENT   READY     AGE
    guestbook-5f5548d4f    10        10        10        21m
    guestbook-768cc55c78   0         0         0         3h

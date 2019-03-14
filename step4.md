@@ -1,10 +1,31 @@
 # Step 4: Install and Enable Knative
 
+## Knative Overview
+
+In this portion of the lab, you'll learn about Knative, a new open source collaboration from IBM, Google, Pivotal, Red Hat, Cisco, and others. You'll install Istio & Knative to your cluster, and then deploy the Guestbook application to it.
+
+Knative is built on top of Istio & Kubernetes, and is a set of primitives for enabling serverless applications on Kubernetes. Knative is made up of 3 components: Serving, Build, and Eventing.
+
+Serving supports serving your applications, managing traffic, as well as routing and autoscaling. Build supports creating a set of steps to build your application from source code to containers, on cluster. Eventing enables you to create event producers and consumers for your application.
+
 ## Install \`knctl\` CLI
 
-Download the appropriate binary from the [releases section](https://github.com/cppforlife/knctl/releases) of the `knctl` project \(and optionally add it to your PATH\), similar to the steps you followed earlier in [Step 1](step1.md#download-the-kubernetes-cli).
+Download the appropriate binary from the [releases section](https://github.com/cppforlife/knctl/releases) of the `knctl` project \(and optionally add it to your PATH\), similar to the steps you followed earlier in [Step 1](step1.md#download-the-kubernetes-cli). 
+
+> Note: if you restart your terminal, you will need to set the `KUBECONFIG` environment variable again.
 
 ![](.gitbook/assets/screen-shot-2019-03-14-at-2.02.09-pm.png)
+
+**Mac Users:**
+
+```bash
+$ chmod +x ~/Downloads/knctl-darwin-amd64 /usr/local/bin/knctl
+$ mv ~/Downloads/knctl-darwin-amd64 /usr/local/bin/knctl
+```
+
+**Windows Users**
+
+Copy the executable to your PATH \(somewhere easily accessible\) and rename it to `knctl`.
 
 After installing, verify you can access it in your terminal:
 

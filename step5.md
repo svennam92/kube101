@@ -22,9 +22,15 @@ You also need to know the domain name that Knative assigned to the Service we ju
 kubectl get ksvc guestbook
 ```
 
+> If this command doesn't work, wait a few seconds and try again.
+
 You'll notice that the domain name is `guestbook.default.example.com`, but we don't actually own anything at `example.com`. You'll see how to update this to your own domain name later, but for now we can directly curl the external IP address for our cluster, and pass in a Host header:  
   
 `curl -H 'Host: guestbook.default.example.com' {EXTERNAL_IP}`
 
-You should see some HTML output. That's really all it takes to deploy an application with Knative! Next, let's fix our ingress so that we can access the application properly.
+You should see some HTML output!
+
+### Much easier!
+
+That's really all it takes to deploy an application with Knative! With one command, we get running pods, a service, a deployment, and a route. Next, let's fix our ingress so that we can actually use that route and access the application properly.
 

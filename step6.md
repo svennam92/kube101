@@ -27,6 +27,8 @@ Next, update the default URL for new Knative apps by editing the configuration:
  kubectl edit cm config-domain --namespace knative-serving
 ```
 
+> If you aren't familiar with `vi` editor, ask an instructor for help.
+
 Change `example.com` to your ingress subdomain, which should look something like: 
 
 ```text
@@ -60,7 +62,7 @@ spec:
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-Note that this file tells Kubernetes to route all requests hitting `/` to the istio-ingressgateway, which powers our Knative-based application. Deploy that ingress file to your cluster after making the change to the `host` field:
+Note that this file tells Kubernetes to route all requests hitting `/` to the istio-ingressgateway, which powers our Knative-based application. Deploy that ingress file to your cluster **after making the change to the `host` field**:
 
  `kubectl apply --filename ingress.yaml`
 
@@ -69,6 +71,21 @@ Note that this file tells Kubernetes to route all requests hitting `/` to the is
 Now you just need to access your application using the subdomain, `guestbook.default.<ingress_subdomain>`. It should look something like this: `http://guestbook.default.fossasia-kube03.sjc04.containers.appdomain.cloud/`
 
 Paste that into your browser, and access your Guestbook application!
+
+### But wait, isn't Knative "serverless"?
+
+If your applications don't receive any load, they'll scale down automatically! Prove it by running `kubectl get pods --watch`.
+
+```text
+$ kubectl get pods --watch
+NAME                                         READY   STATUS    RESTARTS   AGE
+guestbook-00001-deployment-845555976-q999f   2/2     Running   0          41s
+... 2 min later ...
+guestbook-00001-deployment-845555976-q999f   2/2   Terminating   0     117s
+guestbook-00001-deployment-845555976-q999f   1/2   Terminating   0     119s
+```
+
+This demonstrates the `scale-to-zero` aspect of serverless workloads. When no one is utilizing the app, it scales down so that the compute resource is freed up.
 
 ## What's next?
 

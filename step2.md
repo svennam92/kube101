@@ -54,7 +54,7 @@ Now, you will deploy an application called `guestbook` that has already been bui
 
    Once the status reads `Running`, we need to expose that deployment as a service so we can access it through the IP of the worker nodes. 
 
-2. The `guestbook` application listens on port 3000. Expose it as a service, run: `$ kubectl expose deployment guestbook --type="NodePort" --port=3000 service "guestbook" exposed`
+2. The `guestbook` application listens on port 8080. Expose it as a service, run: `$ kubectl expose deployment guestbook --type="NodePort" --port=8080 service "guestbook" exposed`
 3. To find the port used on that worker node, examine your new service:
 
    ```text

@@ -21,7 +21,7 @@ If you already have the CLIs and plug-ins, you can skip this step and proceed to
    `2. IBM (e2b54d0c3bbe4180b1ee63a0e2a7aba4) <-> 1840867  
    Enter a number> 2`
 
-## Install the IBM Cloud Container Service plug-in
+## Install the IBM Cloud Kubernetes Service plug-in
 
 1. To create Kubernetes clusters and manage worker nodes, install the IBM Cloud Container Service plug-in: 
 

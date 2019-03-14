@@ -29,7 +29,7 @@ If you already have the CLIs and plug-ins, you can skip this step and proceed to
    ibmcloud plugin install container-service
    ```
 
-   **Note:** The prefix for running commands by using the IBM Cloud Container Service plug-in is `ibmcloud ks`.
+   **Note:** The prefix for running commands by using the IBM Cloud Kubernetes Service plug-in is `ibmcloud ks`.
 
 2. To verify that the plug-in is installed properly, run the following command: `ibmcloud plugin list`
 

@@ -33,9 +33,11 @@ For this lab, we've created a set of clusters for you to use. These are fully-po
 
 ![](.gitbook/assets/screen-shot-2019-03-14-at-12.29.01-pm.png)
 
-Enter the Lab Key `fossasia-kube-2019`as well as the email address associated with the IBM Cloud account you just created. Use the Dallas region only. After you hit submit, you will be given a cluster for the duration of the workshop.
+Enter the Lab Key `fossasia-kube-2019`as well as the email address associated with the IBM Cloud account you just created. Use the Dallas region only. After you hit submit, you will be given a cluster for the duration of the workshop. Save the name of the cluster that you're given. You'll learn how to access it in later steps.
 
 Now, learn a little bit about Kubernetes to get a better understanding before starting the lab! Feel free to read as much or as little of the material on this page before proceeding to [Step 1](lab0.md).
+
+## Learn about Kubernetes
 
 ![](https://kubernetes.io/images/favicon.png)
 

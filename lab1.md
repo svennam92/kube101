@@ -6,23 +6,27 @@ Deploy an application to a managed Kubernetes cluster.
 
 As a pre-req, you should have obtained a cluster. This is a managed Kubernetes cluster hosted on an IBM organization, with access granted to your personal IBM Cloud account. Let's enable `kubectl`, the primary method of working with _any_ Kubernetes cluster, to communicate with this cluster.
 
-Run `$ ibmcloud ks cluster-config <name-of-cluster>`, and set the `KUBECONFIG` env var. You'll see output like this:
+Recall the name of the cluster you obtained in the [prereq steps](./#step-4-get-a-kubernetes-cluster). Run   
+`# Replace XX with your cluster number!`  
+`$ ibmcloud ks cluster-config fossasia-kubeXX`, and set the `KUBECONFIG` env var. You'll see output like this:
 
-**IMPORTANT: Copy/paste the output in** _**your terminal.**_ **Save this output in a notepad/note for future reference. When opening a new terminal, you will have to set this env var again.** If you're comfortable with it, you can also edit your `.bashrc` or similar file to include this env var every time you open a new terminal.
+`The configuration for fossasia-kube03 was downloaded successfully.  
+Export environment variables to start using Kubernetes.`  
+**`export KUBECONFIG=/Users/svennam/.bluemix/plugins/container-service/clusters/fossasia-kube03/kube-config-sjc04-fossasia-kube03.yml`**
 
-\#TODO
+{% hint style="warning" %}
+**Copy/paste the output from** _**your terminal.**_ **Save this output in a notepad/note for future reference. When opening a new terminal, you will have to set this env var again.** If you're comfortable with it, you can also edit your `.bashrc` or similar file to include this env var every time you open a new terminal.
+{% endhint %}
 
 Once your client is configured, you are ready to deploy your first application, `guestbook`.
 
->
+## **2**. Deploy your application
 
-## Deploy your application
-
-In this part of the lab we will deploy an application called `guestbook` that has already been built and uploaded to DockerHub under the name `ibmcom/guestbook:v1`.
+Now, you will deploy an application called `guestbook` that has already been built and uploaded to DockerHub under the name `svennam92/guestbook:v1`.
 
 1. Start by running `guestbook`:
 
-   `$ kubectl run guestbook --image=ibmcom/guestbook:v1`
+   `$ kubectl run guestbook --image=svennam92/guestbook:v1`
 
    This action will take a bit of time. To check the status of the running application, you can use `$ kubectl get pods --watch`. \(`Ctrl+C` to exit the watch process\)
 
@@ -63,7 +67,7 @@ In this part of the lab we will deploy an application called `guestbook` that ha
 4. `guestbook` is now running on your cluster, and exposed to the internet. We need to find out where it is accessible. The worker nodes running in the container service get external IP addresses. Run `$ ibmcloud cs workers <name-of-cluster>`, and note the public IP listed on the `<public-IP>` line.
 
    ```text
-   $ ibmcloud cs workers osscluster
+   $ ibmcloud ks workers fossasia-kubeXX
    OK
    ID                                                 Public IP        Private IP     Machine Type   State    Status   Zone    Version  
    kube-hou02-pa1e3ee39f549640aebea69a444f51fe55-w1   173.193.99.136   10.76.194.30   free           normal   Ready    hou02   1.5.6_1500*
@@ -74,15 +78,4 @@ In this part of the lab we will deploy an application called `guestbook` that ha
 5. Now that you have both the address and the port, you can now access the application in the web browser at `<public-IP>:<nodeport>`. In the example case this is `173.193.99.136:31208`.
 
 Congratulations, you've now deployed an application to Kubernetes! In the next portion of the lab, you'll learn how to update a Pod and scale it up.
-
-
-
------------- TODO
-
-When you're all done, you can either use this deployment in the [next lab of this course](lab2.md), or you can remove the deployment and thus stop taking the course.
-
-1. To remove the deployment, use `$ kubectl delete deployment guestbook`.
-2. To remove the service, use `$ kubectl delete service guestbook`.
-
-You should now go back up to the root of the repository in preparation for the next lab: `$ cd ..`.
 

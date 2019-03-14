@@ -54,11 +54,13 @@ A _replica_ is a copy of a pod that contains a running service. By having multip
    guestbook-562211614-zsp0j   1/1       Running   0          2m
    ```
 
-### **Why is this cool?**
+### Load Balancers in Kubernetes
 
-When traditionally scaling out applications like this, you'd be required to setup a Load Balancer to route requests to one of the instances. With Kubernetes, load balancers are built in! You can continue to use the IP and Port you used in the last step to access the application - the requests will get forwarded to one of the Pods automatically. Sweet, right?
+Traditionally, when scaling out applications you would need to setup a Load Balancer to route requests to one of the many instances. With Kubernetes, load balancers are built in! You can continue to use the IP and Port you used in the last step to access the application - the requests will get forwarded to one of the Pods automatically. Sweet, right?
 
+{% hint style="info" %}
 **Pro Tip:** Another way to improve availability is to [add clusters and regions](https://console.bluemix.net/docs/containers/cs_planning.html#cs_planning_cluster_config) to your deployment, as shown in the following diagram:
+{% endhint %}
 
 ![HA with more clusters and regions](.gitbook/assets/cluster_ha_roadmap.png)
 
@@ -70,7 +72,7 @@ In the previous lab, we used an image with a `v1` tag. For our upgrade we'll use
 
 Using `kubectl`, you can update your deployment to use the `v2` image. `kubectl` allows you to change details about existing resources with the `set` subcommand. We can use it to change the image being used.
 
-1. Run the following command to change the container image reference on the existing guestbook deployment. `$ kubectl set image deployment/guestbook guestbook=ibmcom/guestbook:v2`  Note that a pod could have multiple containers, each with its own name. Each image can be changed individually or all at once by referring to the name. In the case of our `guestbook` Deployment, the container name is also `guestbook`. Multiple containers can be updated at the same time. \([More information](https://kubernetes.io/docs/user-guide/kubectl/kubectl_set_image/).\)
+1. Run the following command to change the container image reference on the existing guestbook deployment. `$ kubectl set image deployment/guestbook guestbook=svennam92/guestbook:v2`  Note that a pod could have multiple containers, each with its own name. Each image can be changed individually or all at once by referring to the name. In the case of our `guestbook` Deployment, the container name is also `guestbook`. Multiple containers can be updated at the same time. \([More information](https://kubernetes.io/docs/user-guide/kubectl/kubectl_set_image/).\)
 2. Run `kubectl rollout status deployment/guestbook` to check the status of the rollout. The rollout might occur so quickly that the following messages might _not_ display:
 
    ```text
@@ -136,10 +138,14 @@ Using `kubectl`, you can update your deployment to use the `v2` image. `kubectl`
    guestbook-768cc55c78   0         0         0         3h
    ```
 
+### Done! 
+
+Congratulations! You've demonstrated how to scale and rollout deployments. You should have a firm understanding of a standard DevOps flow with Kubernetes. Next, we'll use Knative to show how it makes everything we've done so far even simpler.
+
 Before we continue, let's delete the application so we can learn about a different way to achieve the same results:
 
 To remove the deployment, use `kubectl delete deployment guestbook`.  
 To remove the service, use `kubectl delete service guestbook`.
 
-Congratulations! You've demonstrated how to scale and rollout deployments. You should have a firm understanding of a standard DevOps flow with Kubernetes. Next, we'll use Knative to show how it makes everything we've done so far even simpler.
+
 

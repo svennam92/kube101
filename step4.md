@@ -19,7 +19,7 @@ Download the appropriate binary from the [releases section](https://github.com/c
 **Mac Users:**
 
 ```bash
-$ chmod +x ~/Downloads/knctl-darwin-amd64 /usr/local/bin/knctl
+$ chmod +x ~/Downloads/knctl-darwin-amd64
 $ mv ~/Downloads/knctl-darwin-amd64 /usr/local/bin/knctl
 ```
 

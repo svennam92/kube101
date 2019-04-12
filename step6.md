@@ -13,9 +13,9 @@ First, let's make note of our Ingress subdomain provided by IBM Cloud Kubernetes
 
 ```text
 # Replace XX with your cluster
-$ ibmcloud ks cluster-get fossasia-kubeXX
+$ ibmcloud ks cluster-get jri-customer-kubeXX
 ...
-Ingress Subdomain:      fossasia-kubeXX.sjc04.containers.appdomain.cloud   
+Ingress Subdomain:      jri-customer-kubeXX.sjc04.containers.appdomain.cloud   
 ...
 ```
 
@@ -32,7 +32,7 @@ Next, update the default URL for new Knative apps by editing the configuration:
 Change `example.com` to your ingress subdomain, which should look something like: 
 
 ```text
-fossasia-kubeXX.sjc04.containers.appdomain.cloud
+jri-customer-kubeXX.sjc04.containers.appdomain.cloud
 ```
 
 Knative applications will now be assigned a route with this host, rather than `example.com`.
@@ -68,7 +68,7 @@ Note that this file tells Kubernetes to route all requests hitting `/` to the is
 
 ## You're done!
 
-Now you just need to access your application using the subdomain, `guestbook.default.<ingress_subdomain>`. It should look something like this: `http://guestbook.default.fossasia-kube03.sjc04.containers.appdomain.cloud/`
+Now you just need to access your application using the subdomain, `guestbook.default.<ingress_subdomain>`. It should look something like this: `http://guestbook.default.jri-customer-kube03.sjc04.containers.appdomain.cloud/`
 
 Paste that into your browser, and access your Guestbook application!
 

@@ -13,7 +13,7 @@ knctl deploy \
       --managed-route=false
 ```
 
-Access your application again \(something like `http://guestbook.default.fossasia-kube03.sjc04.containers.appdomain.cloud`\). You may have to do a cache-less reload, but you should see Guestbook v2.
+Access your application again \(something like `http://guestbook.default.jri-customer-kube03.sjc04.containers.appdomain.cloud`\). You may have to do a cache-less reload, but you should see Guestbook v2.
 
 ### **Traffic Management**
 
@@ -24,7 +24,7 @@ $ knctl revision list
 Revisions
 
 Service    Name             Tags      Annotations  Conditions  Age  Traffic  
-guestbook  guestbook-00002  latest    -            5 OK / 5    20s  100% -> guestbook.default.fossasia-kube1.sjc04.containers.appdomain.cloud  
+guestbook  guestbook-00002  latest    -            5 OK / 5    20s  100% -> guestbook.default.jri-customer-kube1.sjc04.containers.appdomain.cloud  
 ~          guestbook-00001  previous  -            4 OK / 5    23m  -  
 
 2 revisions
@@ -43,7 +43,7 @@ knctl rollout --route guestbook -p guestbook:latest=50% -p guestbook:previous=50
 That's it! Your traffic is now being equally routed between the two versions. You can test this by running the following script \(but for your Ingress Subdomain\):
 
 ```text
-while sleep 0.5; do curl -s http://guestbook.default.fossasia-kube1.sjc04.containers.appdomain.cloud/ | grep title ; done
+while sleep 0.5; do curl -s http://guestbook.default.jri-customer-kube1.sjc04.containers.appdomain.cloud/ | grep title ; done
 ```
 
 In a real-world deployment, you'd have a much lower percent routing to the newer version. You'd gradually increase that until you've verified that your users are having a positive experience with the new version. Knative makes it really easy to manage routes, traffic and revisions -- all the tools that make operations engineers' lives easier.

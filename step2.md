@@ -12,16 +12,16 @@ Run the following:
 
 ```text
 # Replace XX with your cluster number!
-$ ibmcloud ks cluster-config fossasia-kubeXX
+$ ibmcloud ks cluster-config jri-customer-kubeXX
 ```
 
 Set the `KUBECONFIG` env var. You'll see output like this:
 
 ```text
-The configuration for fossasia-kube03 was downloaded successfully.
+The configuration for jri-customer-kube03 was downloaded successfully.
 Export environment variables to start using Kubernetes.
 
-export KUBECONFIG=/Users/svennam/.bluemix/plugins/container-service/clusters/fossasia-kube03/kube-config-sjc04-fossasia-kube03.yml
+export KUBECONFIG=/Users/svennam/.bluemix/plugins/container-service/clusters/jri-customer-kube03/kube-config-sjc04-jri-customer-kube03.yml
 ```
 
 **Copy/paste the output from** _**your terminal.**_ **Save this output in a notepad/note for future reference. When opening a new terminal, you will have to set this env var again.** If you're feeling savvy with your environment, you can also edit your `.bashrc` or similar file to include this env var every time you open a new terminal.
@@ -74,7 +74,7 @@ Now, you will deploy an application called `guestbook` that has already been bui
 4. `guestbook` is now running on your cluster, and exposed to the internet. We need to find out where it is accessible. The worker nodes running in the container service get external IP addresses. Run `$ ibmcloud cs workers <name-of-cluster>`, and note the public IP listed on the `<public-IP>` line.
 
    ```text
-   $ ibmcloud ks workers fossasia-kubeXX
+   $ ibmcloud ks workers jri-customer-kubeXX
    OK
    ID                                                 Public IP        Private IP     Machine Type   State    Status   Zone    Version  
    kube-hou02-pa1e3ee39f549640aebea69a444f51fe55-w1   173.193.99.136   10.76.194.30   free           normal   Ready    hou02   1.5.6_1500*

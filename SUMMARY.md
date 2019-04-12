@@ -1,6 +1,6 @@
 # Table of contents
 
-* [FOSSASIA: Kubernetes and Knative Lab](README.md)
+* [Kubernetes and Knative Lab](README.md)
 * [Step 1: Pre-reqs and Setup](step1.md)
 * [Step 2: Deploy Your First Application](step2.md)
 * [Step 3: Scale and Update Deployments](step3.md)

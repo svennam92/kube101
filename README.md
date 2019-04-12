@@ -5,11 +5,11 @@ description: >-
   about Kubernetes.
 ---
 
-# FOSSASIA: Kubernetes and Knative Lab
+# Kubernetes and Knative Lab
 
 ### Step 1: Register for IBM Cloud
 
-Go to [IBM Cloud Registration ](https://cloud.ibm.com/registration/?cm_mmc=Email_Events-_-Developer_Innovation-_-WW_WW-_-acli%5Czackyeo%5CFOSSASIASummit2019%5CMar2019%5Cunknown%5Cglobaldevadvgrp%5Cunknown%5Cunknown%5Cunknown%5Capi%5Ccloud%5Ccontainers%5Cserverless%5C&cm_mmca1=000019RS&cm_mmca2=10004805&cm_mmca3=M99938765&cvosrc=email.Events.M99938765&cvo_campaign=000019RS)to start the registration. Note that we've whitelisted this URL to ensure everyone can sign-up today.
+Go to [IBM Cloud Registration ](https://cloud.ibm.com/registration)to start the registration. Note that we've whitelisted this URL to ensure everyone can sign-up today.
 
 ![](.gitbook/assets/screen-shot-2019-03-14-at-12.24.54-pm.png)
 

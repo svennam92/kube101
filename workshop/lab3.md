@@ -116,7 +116,7 @@ The above configuration creates a Service resource named guestbook. A Service ca
 
   Remember, to get the `nodeport` and `public-ip` use:
 
-  `$ kubectl describe service guestbook` and `$ ibmcloud cs workers <name-of-cluster>`
+  `$ kubectl describe service guestbook` and `$ ibmcloud ks workers <name-of-cluster>`
 
 ## 2. Connect to a back-end service.
 

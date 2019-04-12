@@ -71,7 +71,7 @@ Now, you will deploy an application called `guestbook` that has already been bui
 
    We can see that our `<nodeport>` is `31208`. We can see in the output the port mapping from 8080 inside the pod exposed to the cluster on port 31208. This port in the 31000 range is automatically chosen, and could be different for you.
 
-4. `guestbook` is now running on your cluster, and exposed to the internet. We need to find out where it is accessible. The worker nodes running in the container service get external IP addresses. Run `$ ibmcloud cs workers <name-of-cluster>`, and note the public IP listed on the `<public-IP>` line.
+4. `guestbook` is now running on your cluster, and exposed to the internet. We need to find out where it is accessible. The worker nodes running in the container service get external IP addresses. Run `$ ibmcloud ks workers <name-of-cluster>`, and note the public IP listed on the `<public-IP>` line.
 
    ```text
    $ ibmcloud ks workers jri-customer-kubeXX

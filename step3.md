@@ -116,7 +116,7 @@ Using `kubectl`, you can update your deployment to use the `v2` image. `kubectl`
 
    Remember, to get the "nodeport" and "public-ip" use:
 
-   `$ kubectl describe service guestbook` and `$ ibmcloud cs workers <name-of-cluster>`
+   `$ kubectl describe service guestbook` and `$ ibmcloud ks workers <name-of-cluster>`
 
    To verify that you're running "v2" of guestbook, look at the title of the page, it should now be `Guestbook - V2`. You may have to do a cache-less reload, with `Ctrl+F5` or `Cmd+Shift+R`
 
